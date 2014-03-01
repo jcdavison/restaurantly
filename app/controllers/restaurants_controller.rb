@@ -13,9 +13,19 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.new
   end
 
   def create
+    name = params[:restaurant][:name] if params[:restaurant]
+    @restaurant = Restaurant.new name: name
+    if @restaurant.save
+      flash[:success] = "#{@restaurant.name} created"
+      redirect_to restaurant_path @restaurant
+    else
+      flash[:warning] = @restaurant.errors.inspect
+      redirect_to new_restaurant_path
+    end
   end
 
   def edit
