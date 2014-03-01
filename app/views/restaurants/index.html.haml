@@ -7,3 +7,5 @@
     - @restaurants.each do |restaurant|
       %h5.subheader
         = restaurant.name
+        = link_to "edit", edit_restaurant_path(restaurant)
+        = link_to "destroy", restaurant_path(restaurant), method: :delete

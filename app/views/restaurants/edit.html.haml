@@ -1,2 +1,5 @@
-%h1 Restaurants#edit
-%p Find me in app/views/restaurants/edit.html.haml
+.row
+  .large-8.columns.large-centered
+    = form_for @restaurant do |restaurant|
+      = restaurant.text_field :name
+      = restaurant.submit "update", class: "button"

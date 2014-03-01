@@ -30,11 +30,29 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
+    @restaurant = Restaurant.find_by_id params[:id]
+    if @restaurant
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def update
+    @restaurant = Restaurant.find_by_id params[:id]
+    if @restaurant
+      @restaurant.update_attributes(name: params[:restaurant][:name])
+      flash[:success] = "Name Updated!"
+      redirect_to restaurant_path @restaurant
+    else
+      flash[:alert] = "Houston, we have a problem"
+      redirect_to root_path
+    end
   end
 
   def destroy
+    @restaurant = Restaurant.find_by_id params[:id]
+    @restaurant.destroy
+    redirect_to root_path
   end
 end
