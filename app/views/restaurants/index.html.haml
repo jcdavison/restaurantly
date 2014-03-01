@@ -1,2 +1,9 @@
-%h1 Restaurants#index
-%p Find me in app/views/restaurants/index.html.haml
+.row
+  .large-8.columns.large-centered
+    %h3.subheader.center
+      Restaurantly Spots!
+.row
+  .large-8.columns.large-centered
+    - @restaurants.each do |restaurant|
+      %h5.subheader
+        = restaurant.name
