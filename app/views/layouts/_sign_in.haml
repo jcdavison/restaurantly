@@ -1,0 +1,6 @@
+.row
+  .large-2.columns.large-centered
+    - unless current_user
+      = link_to "Sign Up/In", "/users/auth/twitter", class: "button small radius"
+    - else
+      = link_to "logout", destroy_user_session_path, method: "DELETE"

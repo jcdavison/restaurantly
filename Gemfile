@@ -16,6 +16,8 @@ gem 'foundation-rails'
 
 #user auth
 gem 'devise', '3.0.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :test, :development do
   gem 'quiet_assets'
