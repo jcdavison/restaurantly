@@ -14,6 +14,9 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'foundation-rails'
 
+#user auth
+gem 'devise', '3.0.0'
+
 group :test, :development do
   gem 'quiet_assets'
   gem "rspec-rails", "~> 2.14.1"
